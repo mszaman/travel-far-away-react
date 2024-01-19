@@ -16,9 +16,8 @@ export default {
         taupe: "#A58D69",
       },
       screens: {
-        sm: "570px",
-        md: "600px",
-        lg: "970px",
+        md: "800px",
+        lg: "1140px",
       },
     },
   },
