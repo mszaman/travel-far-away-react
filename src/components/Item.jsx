@@ -1,9 +1,25 @@
-export default function Item() {
+export default function Item({
+  id,
+  description,
+  packed,
+  quantity,
+  onDeleteItem,
+  onToggleItem,
+}) {
   return (
-    <li className="text-peach flex items-center text-2xl">
-      <input type="checkbox" className="accent-tangelo mr-2 h-5 w-5" />
-      <span className="line-through">1 Item</span>
-      <button>❌</button>
+    <li className="flex items-center text-2xl text-peach">
+      <input
+        type="checkbox"
+        className="mr-2 h-5 w-5 accent-tangelo"
+        value={packed}
+        onChange={() => onToggleItem(id)}
+      />
+      <span className={packed ? "line-through" : ""}>
+        {quantity} {description}
+      </span>
+      <button className="ml-2 text-base" onClick={() => onDeleteItem(id)}>
+        ❌
+      </button>
     </li>
   );
 }
