@@ -21,6 +21,16 @@ function App() {
     setItems((items) => items.filter((i) => i.id !== id));
   };
 
+  const handleClearList = () => {
+    const confirmed = window.confirm(
+      "Are you sure, you want to Delete all of your items?",
+    );
+
+    if (confirmed) {
+      setItems([]);
+    }
+  };
+
   return (
     <div className="grid h-screen grid-rows-[auto_auto_1fr_auto]">
       <Logo />
@@ -29,6 +39,7 @@ function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>

@@ -1,6 +1,11 @@
 import Item from "./Item";
 
-export default function PackingList({ items, onDeleteItem, onToggleItem }) {
+export default function PackingList({
+  items,
+  onDeleteItem,
+  onToggleItem,
+  onClearList,
+}) {
   if (!items) return;
 
   return (
@@ -25,7 +30,10 @@ export default function PackingList({ items, onDeleteItem, onToggleItem }) {
           <option value="">sort by description</option>
           <option value="">sort by packed list</option>
         </select>
-        <button className="rounded-full bg-peach px-4 py-2 uppercase">
+        <button
+          className="rounded-full bg-peach px-4 py-2 uppercase"
+          onClick={onClearList}
+        >
           clear list
         </button>
       </div>
